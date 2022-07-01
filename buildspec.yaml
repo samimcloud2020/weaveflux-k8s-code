@@ -18,8 +18,7 @@ phases:
         - echo $TAG
         - echo $REPOSITORY_URI
         - echo $REPOSITORY_URI:$TAG
-        
-        
+           
         - echo $(aws ecr get-authorization-token --region us-east-1 --output text --query 'authorizationData[].authorizationToken' | base64 -d | cut -d: -f2) | docker login -u AWS https://663380234130.dkr.ecr.us-east-1.amazonaws.com --password-stdin 
         
   build:
